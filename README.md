@@ -1,2 +1,147 @@
-# DataScience
-Hemorrhagic Stroke / Medical Imaging Predictions
+# Data Science Project: Hemorrhagic Stroke / Medical Imaging Predictions
+
+**Collaborators**  
+- Ekaterina Golubeva  
+- Julian Deseö  
+- Alihan Karatasli  
+
+
+## 1. Git & Repository Structure
+We will use a private Git repository with the following structure:
+
+```
+project_root/
+├── data/
+│   ├── external/      # Data from third-party sources
+│   ├── interim/       # Intermediate data processed during pipeline
+│   ├── processed/     # Final data sets ready for modeling
+│   └── raw/           # Immutable original data dumps
+├── docs/              # Project documentation, design docs, presentations
+├── environment.yml    # Conda environment specification
+├── notebooks/
+│   ├── 0_data_exploration.ipynb
+│   ├── 1_feature_engineering.ipynb
+│   └── 2_modeling.ipynb
+├── references/        # Papers, PDFs, additional background materials
+├── scripts/
+│   ├── data_processing.py
+│   ├── feature_extraction.py
+│   └── model_training.py
+├── tests/             # Unit tests for scripts
+├── .gitignore
+└── README.md
+```
+
+### Explanation
+- **data**: Subdirectories (`raw`, `interim`, `processed`, `external`) keep data organized by lifecycle stage.  
+- **docs**: High-level documentation, design specs, meeting minutes, etc.  
+- **environment.yml**: Conda environment definition. We all install from the same spec to ensure consistency.  
+- **notebooks**: Jupyter notebooks for data exploration, feature engineering, and modeling.  
+- **references**: Any supporting documents like research papers, references, or code from external sources.  
+- **scripts**: Reusable Python scripts. Keep them modular (one main responsibility per script).  
+- **tests**: Unit tests (we use `pytest`) to ensure ongoing stability.  
+- **.gitignore**: Prevent large or sensitive files from being committed to version control.  
+
+
+## 2. Creating and Maintaining the Repository
+
+The Github repo has been created. Team needs to discuss over branching and the structure of the repo.
+It is very important to stick to the guidelines, timelines, and create issues. Issues should be closed after PR.
+
+### Branching & Collaboration
+- **Main Branch**: Stable, production-ready version.
+- **Feature Branches**: One per new feature or experiment (e.g., `feature/lesion-extraction`).  
+- **Pull Requests**: Open a PR to merge into main; get a quick review from others before merging.
+
+
+## 3. Conda Environment Setup
+
+We maintain a single Conda environment configuration in environment.yml. This ensures everyone on the team has identical versions of Python, libraries, and tools.
+
+An `environment.yml` has been created at the project root.
+
+### Usage
+
+Make sure you are in the same directory that contains environment.yml in the following steps:
+
+1. **Create & Activate**  
+   ```bash
+   source ~/miniforge3/bin/activate
+   ```
+   ```bash
+   conda env create -f environment.yml
+   conda activate stroke-prediction
+   ```
+2. **Update** (when environment.yml changes)  
+   ```bash
+   conda env update -f environment.yml --prune
+   ```
+
+
+## 4. Data Management
+- **`data/raw`**: Original, immutable data. **Never** edit in place.  
+- **`data/interim`**: Temporary artifacts generated during processing.  
+- **`data/processed`**: Final, clean datasets ready for modeling or analysis.  
+- **`data/external`**: Third-party reference data (e.g., atlases).  
+
+For very large files, consider:
+- [Git LFS](https://git-lfs.github.com/) for large binary files.  
+- Secured institutional servers / cloud storage for sensitive data.
+
+
+## 5. Notebooks
+- Name them clearly (e.g., `0_data_exploration.ipynb`, `1_feature_engineering.ipynb`).  
+- Keep them as short as possible; open new notebooks for big experiments.  
+- To avoid merge conflicts, commit notebooks often, use separate branches, or coordinate who works on which files.
+
+
+## 6. Scripts
+- **data_processing.py**: Data cleaning and transformation.  
+- **feature_extraction.py**: Extracting lesion sizes, volumes, etc.  
+- **model_training.py**: ML modeling and evaluation.  
+
+Organize scripts by functionality and keep each script’s scope narrow.
+
+
+## 7. Testing
+- Use **pytest** (included in environment).  
+- Mirror your script structure in `tests/`:
+  ```
+  tests/
+  ├── test_data_processing.py
+  ├── test_feature_extraction.py
+  └── test_model_training.py
+  ```
+- Run all tests from the project root via:  
+  ```bash
+  pytest
+  ```
+
+## 8. Code Quality & Pre-commit Hooks
+- **Black** for formatting, **isort** for imports, **flake8** for linting.  
+
+
+## 9. Documentation (`docs/` folder)
+- Store design docs, meeting notes, or any high-level references here.  
+- If you want full project documentation, consider Sphinx or MkDocs in this directory.
+
+
+## 10. References (`references/` folder)
+- PDF papers, code from external sources, or any additional reference materials.  
+- Keep a short README here describing each file’s origin or purpose.
+
+
+## 11. Next Steps - for new Collaborators
+1. **Clone** the repository once it’s created:  
+   ```bash
+   git clone <repository-url>
+   ```
+2. **Create** your environment with `environment.yml`.  
+3. **Work** on your assigned notebooks or scripts in feature branches.  
+4. **Commit** changes frequently, with meaningful commit messages.  
+5. **Pull** the latest main branch changes before starting new work.
+
+---
+
+**Based on [Eric Ma’s Project Organization Guidelines](https://gist.github.com/ericmjl/27e50331f24db3e8f957d1fe7bbbe510)**  
+**Prepared for**: Ekaterina Golubeva, Julian Deseö, and Alihan Karatasli.  

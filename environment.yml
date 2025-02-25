@@ -1,0 +1,19 @@
+name: stroke-prediction
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy
+  - pandas
+  - scikit-learn
+  - jupyter
+  - matplotlib
+  - seaborn
+  - nibabel     # for medical imaging
+  - nilearn     # for neuroimaging
+  - ipykernel
+  - pytest      # for tests
+  - black       # code formatter
+  - isort       # import sorting
+  - flake8      # linting
