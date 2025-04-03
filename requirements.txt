@@ -6,3 +6,5 @@ pydicom
 nibabel
 tqdm
 opencv-python
+seaborn
+scikit-learn
