@@ -30,15 +30,16 @@ This project focuses on predicting hemorrhagic stroke outcomes using medical ima
 
 ## Setup Instructions
 
-1. **Create the Virtual Environment Outside the Project Folder**
+1. **Create the Virtual Environment and Install Dependencies**
 
    Open a terminal and run:
-   
-   ```bash
-   cd ..
-   conda env create -f DataScience/environment.yml
-   conda activate your_env_name
-   
+
+- Create a virtual environment: `python3 -m venv venv`  
+- Activate it:  
+  - Linux/macOS: `source venv/bin/activate`  
+  - Windows: `venv\Scripts\activate`  
+- Install dependencies: `pip install -r requirements.txt`
+ 
 
 2. **Launch the Jupyter Notebook**
 
