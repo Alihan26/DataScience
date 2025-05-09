@@ -1,6 +1,6 @@
 # Data Science Project: Hemorrhagic Stroke / Medical Imaging Predictions
 
-This project focuses on predicting hemorrhagic stroke outcomes using medical imaging. The repository is organized to keep notebooks, scripts, figures, and data well separated.
+This project aims to predict functional outcome post-ischemic stroke using machine learning techniques. More about it, you can read it in our notebook. The repository is organized to keep notebooks, scripts, figures, and data well separated. 
 
 
 ## Setup Instructions
